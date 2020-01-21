@@ -25,7 +25,20 @@ def buildLines(image):
 
     # Apply Canny Edge detection
     cannyImage = canny(blurredImage, 70, 100)
+
+    # Make a ROI mask
+    h = image.shape[0]
+    w = image.shape[1]
     
+    p1 = (w/10, h-10)
+    p2 = (int(w*3/7), int(h*0.6))
+    p3 = (int(w*4/7), int(h*0.6))
+    p4 = (w*9/10, h-10)
+    
+    # Mask canny edges with ROI
+    cullVerts = np.array([[p1, p2, p3, p4]], dtype=np.int32)
+    cannyImage = region_of_interest(cannyImage, cullVerts)
+
     # Get lines from Hough space
     rho = 2
     theta = np.pi/180
