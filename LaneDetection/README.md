@@ -7,3 +7,11 @@ Ensure you have `matplotlib` and `opencv-python` installed, and run `main.py` wi
 
 ## Results
 Output images will live in the `test_images_output` directory, based on inputs from `test_images`
+
+Below is a quick before and after of one of the test cases
+
+### Before
+![BeforeLaneDetection](https://i.imgur.com/MtwRLu6.jpg)
+
+### After
+![AfterLaneDetection](https://i.imgur.com/wWgyAMh.jpg)
